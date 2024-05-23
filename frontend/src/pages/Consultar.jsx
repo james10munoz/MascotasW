@@ -12,9 +12,9 @@ const ConsultarMascotas = () => {
           </label>
           <select id="categoria" className="form-select w-full bg-gray-200 border border-gray-300 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
             <option value="">Seleccione una categoría</option>
-            <option value="perro">Perro</option>
+            <option value="perro">Perro    </option>
             <option value="gato">Gato</option>
-            <option value="otro">Otro</option>
+            <option value="otro">Otro    </option>
           </select>
         </div>
 
