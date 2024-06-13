@@ -1,88 +1,94 @@
-// src/components/AddPet.js
 import React from 'react';
 
-const AddPet = () => {
+const Adicionar = () => {
   return (
-    <div className="bg-blue-900 p-4 rounded-lg w-80">
-      <div className="flex justify-between items-center mb-4">
-        <button className="text-white text-lg">←</button>
-        <h2 className="text-white text-lg">Adicionar Mascota</h2>
-        <button className="text-white text-lg">✖</button>
-      </div>
-      <div className="flex justify-center mb-4">
-        <div className="bg-gray-300 p-4 rounded-full">
-          <svg
-            className="w-12 h-12 text-gray-600"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M12 4v16m8-8H4"
+    <div className="flex justify-center items-center h-screen">
+      <div className="relative rounded-3xl w-full max-w-md h-screen overflow-hidden">
+        <img
+          src="/public/imgs/bg.svg"
+          alt="Background"
+          className="absolute inset-0 w-full h-full object-cover z-0"
+        />
+        <div className="relative p-4">
+          <div className="flex justify-between items-center mt-3 mb-4">
+            <button className="text-white text-5xl">
+              <img src="/public/imgs/btn-back.svg" alt="Back" />
+            </button>
+            <h2 className="text-white text-lg">Adicionar Mascota</h2>
+            <button className="text-white text-lg">
+              <img src="/public/imgs/btn-close.svg" alt="Close" />
+            </button>
+          </div>
+          <div className="flex justify-center mb-8">
+            <div className="rounded-full">
+              <img
+                src="/imgs/photo-lg-0.svg"
+                alt="Camera Icon"
+                className="w-32 h-32"
+              />
+            </div>
+          </div>
+          <div className="flex flex-col items-center p-2">
+            <input
+              type="text"
+              placeholder="Nombre"
+              className="bg-slate-200 text-black p-2 rounded-full mb-4 w-full"
             />
-          </svg>
+            <select className="bg-slate-400 p-2 rounded-full mb-4 w-full">
+              <option>Seleccione Raza...</option>
+              <option>Bulldog</option>
+              <option>Corgi</option>
+              <option>Siamese</option>
+              <option>Graycat</option>
+            </select>
+            <select className="bg-slate-400 p-2 rounded-full mb-4 w-full">
+              <option>Seleccione Categoría...</option>
+              <option>Perro</option>
+              <option>Gato</option>
+            </select>
+            <div className="bg-slate-400 p-2 rounded-full mb-4 w-full flex items-center">
+              <input
+                type="text"
+                id="file-upload-text"
+                placeholder="Subir Foto"
+                className="bg-slate-400 flex-grow text-black"
+                readOnly
+              />
+              <input
+                type="file"
+                id="file-upload"
+                className="hidden"
+                onChange={(e) => {
+                  const fileName = e.target.files[0]
+                    ? e.target.files[0].name
+                    : 'Subir Foto';
+                  document.getElementById('file-upload-text').value = fileName;
+                }}
+              />
+              <button
+                className="text-gray-600 p-2"
+                onClick={() => document.getElementById('file-upload').click()}
+              >
+                <img
+                  src="/public/imgs/icon-camera.svg"
+                  alt="Upload"
+                  className="w-6 h-6"
+                />
+              </button>
+            </div>
+            <select className="bg-slate-400 p-2 rounded-full mb-4 w-full">
+              <option>Seleccione Género...</option>
+              <option>Macho</option>
+              <option>Hembra</option>
+            </select>
+            <button className="rounded-full w-full">
+              <img src="/public/imgs/btn-save.svg" alt="Save" />
+            </button>
+          </div>
         </div>
       </div>
-      <input
-        type="text"
-        placeholder="Nombre"
-        className="bg-gray-200 p-2 rounded-lg mb-4 w-full"
-      />
-      <select className="bg-gray-200 p-2 rounded-lg mb-4 w-full">
-        <option>Seleccione Raza...</option>
-        <option>Bulldog</option>
-        <option>Corgi</option>
-        <option>Siamese</option>
-        <option>Graycat</option>
-      </select>
-      <select className="bg-gray-200 p-2 rounded-lg mb-4 w-full">
-        <option>Seleccione Categoría...</option>
-        <option>Perro</option>
-        <option>Gato</option>
-      </select>
-      <div className="bg-gray-200 p-2 rounded-lg mb-4 w-full flex items-center">
-        <input
-          type="text"
-          placeholder="Subir Foto"
-          className="bg-gray-200 flex-grow"
-        />
-        <button className="text-gray-600 p-2">
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M3 7h2l1-1h10l1 1h2a2 2 0 012 2v10a2 2 0 01-2 2H3a2 2 0 01-2-2V9a2 2 0 012-2z"
-            />
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M12 11a3 3 0 100 6 3 3 0 000-6z"
-            />
-          </svg>
-        </button>
-      </div>
-      <select className="bg-gray-200 p-2 rounded-lg mb-4 w-full">
-        <option>Seleccione Género...</option>
-        <option>Macho</option>
-        <option>Hembra</option>
-      </select>
-      <button className="bg-green-500 text-white py-2 px-4 rounded-full w-full">
-        Guardar
-      </button>
     </div>
   );
 };
 
-export default AddPet;
+export default Adicionar;
